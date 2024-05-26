@@ -9,9 +9,9 @@ Before running this script, ensure you have Python 3.9 installed on your system.
 
 To install all required dependencies, use the provided `requirements.txt` file:
 
-\`\`\`bash
+```
 pip install -r requirements.txt
-\`\`\`
+```
 
 This command will automatically install all the necessary libraries, including librosa, numpy, tqdm, torch, and transformers, among others.
 
