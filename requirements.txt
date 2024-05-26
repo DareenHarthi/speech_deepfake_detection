@@ -1,0 +1,8 @@
+importlib_resources==5.12.0
+librosa>=0.10.1,<0.11.0  # Adjusted for broader compatibility
+torchlibrosa
+msclap
+PyYAML>=6.0.1,<7.0.0  # Updated to meet msclap's requirements
+numpy>=1.25.0,<1.26.0  # Updated to satisfy msclap while compatible with others
+transformers>=4.34.0,<5.0.0   # Assuming you need a specific version for your project
+torch
