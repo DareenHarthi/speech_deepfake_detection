@@ -13,7 +13,6 @@ To install all required dependencies, use the provided `requirements.txt` file:
 pip install -r requirements.txt
 ```
 
-This command will automatically install all the necessary libraries, including librosa, numpy, tqdm, torch, and transformers, among others.
 
 ### Installation
 
