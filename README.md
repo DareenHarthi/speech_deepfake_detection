@@ -19,10 +19,10 @@ This command will automatically install all the necessary libraries, including l
 
 1. Clone the repository or download the script to your local machine.
 2. Clone the Pengi repository:
-   \`\`\`bash
+   ```
    cd models/
    git clone https://github.com/microsoft/Pengi
-   \`\`\`
+   ```
 3. Download Pengi weights `base_no_text_enc` and move to Pengi/configs folder
 4. Ensure that any additional libraries for models (`wrapper`, `msclap`) are properly installed and configured.
 
@@ -39,15 +39,15 @@ To use the script, you will need to provide the path to the folder containing th
 
 Run the script from the command line by navigating to the script's directory and executing the following command:
 
-\`\`\`bash
+```
 python extract_embeddings.py [path_to_folder] [embedding_type]
-\`\`\`
+```
 
 For example, to process audio files in the folder \`timit/\` with the \`wavlm\` embedding type, you would run:
 
-\`\`\`bash
+```
 python extract_embeddings.py timit/ wavlm
-\`\`\`
+```
 
 
 ### Output
