@@ -1,14 +1,23 @@
 
 from pathlib import Path
 import numpy as np
-from .Pengi.wrapper import PengiWrapper as Pengi
+# from .Pengi.wrapper import PengiWrapper as Pengi
 from msclap import CLAP
 import librosa
 from transformers import AutoProcessor, Wav2Vec2Model
 import torch
 from transformers import AutoFeatureExtractor, WavLMForXVector
 from tqdm import tqdm 
+import os 
 
+def get_clap_embed_file(file):
+    clap_model = CLAP(version = '2023', use_cuda=False)
+
+    audio_embeddings = clap_model.get_audio_embeddings([file])
+    return audio_embeddings
+        
+        
+        
 def get_pengi_embed(folder):
     pengi = Pengi(config="base_no_text_enc")
     files = list(Path(folder).glob("**/*.WAV"))
@@ -24,16 +33,15 @@ def get_pengi_embed(folder):
         
 def get_clap_embed(folder):
     clap_model = CLAP(version = '2023', use_cuda=False)
-    files = list(Path(folder).glob("**/*.WAV"))
+    files = list(Path(folder).glob("**/*.wav"))
+    files = [ file for file in files if not os.path.exists(str(file).replace(".wav", ".clap.npy"))]
     for file in tqdm(files, total=len(files)):
+        new_file = str(file).replace(".wav", ".clap.npy")
         
         audio_embeddings = clap_model.get_audio_embeddings([file])
-    
-        
-        new_file = str(file).replace(".WAV", ".clap.npy")
         
         np.save(f"{new_file}", audio_embeddings)
-    
+        
 def get_wavlm_embed(folder):
     files = list(Path(folder).glob("**/*.WAV"))
     feature_extractor = AutoFeatureExtractor.from_pretrained("microsoft/wavlm-base-plus-sv")
