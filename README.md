@@ -27,14 +27,41 @@ pip install -r requirements.txt
 
 ## Usage
 
+### Speech DeepFake Detection
+This script allows you to analyze audio files to detect potential deepfake content. You can input any audio file with `.WAV` extension or other supported formats.
+
+#### Command Line Arguments
+
+- \`file\`: The path to your audio file.
+
+#### Running the Script
+
+To run the script, navigate to the directory containing the script and execute the following command in the terminal:
+
+```
+python detect.py [path_to_file] 
+```
+
+For example:
+
+```
+python detect.py samples/real.wav
+```
+
+
+#### Output
+
+The script will output a confidence score indicating the likelihood that the audio is a deepfake. This score will be printed directly to the console.
+
+### Embeddings Extraction 
 To use the script, you will need to provide the path to the folder containing the `.WAV` files and the type of embedding to process. The script supports the following embedding types: `pengi`, `clap`, `wavlm`, `wav2vec`.
 
-### Command Line Arguments
+#### Command Line Arguments
 
 - \`folder\`: The path to the folder containing your `.WAV` files.
 - \`embedding_type\`: The type of embedding to process. Valid options are `pengi`, `clap`, `wavlm`, `wav2vec`.
 
-### Running the Script
+#### Running the Script
 
 Run the script from the command line by navigating to the script's directory and executing the following command:
 
@@ -49,7 +76,7 @@ python extract_embeddings.py timit/ wavlm
 ```
 
 
-### Output
+#### Output
 
 The script will process each `.WAV` file in the specified folder and generate a corresponding `.<embedding_type>.npy` file containing the audio embeddings. For example, if the chosen embedding type is `wavlm`, the output file for `sample.WAV` will be named `sample.wavlm.npy`. These `.npy` files, named to reflect the embedding type used, will be saved in the same directory as the source `.WAV` files.
 
