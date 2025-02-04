@@ -28,7 +28,7 @@ pip install -r requirements.txt
 ## Usage
 
 ### Speech DeepFake Detection
-This script allows you to analyze audio files to detect potential deepfake content. You can input any audio file with `.WAV` extension or other supported formats.
+This script allows you to detect potential deepfake audio. You can input any audio file with `.WAV` extension or other format.
 
 #### Command Line Arguments
 
